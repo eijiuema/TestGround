@@ -8,9 +8,6 @@ extents = Vector2( 31.1487, 31.588 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -21,17 +18,19 @@ texture = ExtResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="Player" type="Label" parent="." groups=[
-"MinimapHUD",
+[node name="MinimapInfo" type="Node2D" parent="." groups=[
+"MinimapInfo",
 ]]
 visible = false
+
+[node name="Player" type="Label" parent="MinimapInfo"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -102.0
-margin_top = -109.0
-margin_right = -62.0
-margin_bottom = -95.0
+margin_left = -100.0
+margin_top = -120.0
+margin_right = -60.0
+margin_bottom = -106.0
 rect_scale = Vector2( 5, 5 )
 text = "Player"

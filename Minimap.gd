@@ -7,7 +7,6 @@ export var ZOOM_SPEED = 0.25
 export var MOVE_SPEED = 20
 
 onready var Global = $"/root/Global"
-onready var MinimapHUD = get_tree().get_nodes_in_group("MinimapHUD")
 onready var Camera = $Viewport/MinimapCamera
 
 var dragMouse = false
@@ -69,10 +68,10 @@ func toggle_minimap():
 	
 	# Make the minimap and minimap hud elements visible
 	visible = !visible
-	for elem in MinimapHUD:
-		elem.visible = !elem.visible
+	for MinimapInfo in get_tree().get_nodes_in_group("MinimapInfo"):
+		MinimapInfo.visible = !MinimapInfo.visible
 	
 	# Resets the minimap position
 	Camera.offset = Vector2(0, 0)
 	Camera.zoom = Vector2(1.5, 1.5)
-	Camera.position = Vector2(Global.player.global_position.x, Global.player.global_position.y * 0.6667)
+	Camera.position = Vector2(Global.player.global_position.x, Global.player.global_position.y)
